@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Linkbush</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://avatars.githubusercontent.com/YOUR_GITHUB_USERNAME" type="image/x-icon" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Core theme CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.4/gsap.min.js"
+        integrity="sha512-3WGIRFCuTpZhqYujwLp5RtARPkOy3uRtc3RXB31bJ9/i6VH2C66Z0WBV6gHhdhbUIDKFx8yTkLfEjdQM5Wl+ZQ=="
+        crossorigin="anonymous"></script>
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function () {
+            const userLang = navigator.language || navigator.userLanguage;
+            const lang = userLang.startsWith('es') ? 'es' : 'en';
+        
+            fetch(`translations/${lang}.json`)
+              .then(response => response.json())
+              .then(data => {
+                console.log('Data received:', data);
+        
+                document.getElementById('writingTextLink').src = data.writingTextLink || '';
+                document.getElementById('Section1').textContent = data.Section1 || '';
+                document.getElementById('Section2').textContent = data.Section2 || '';
+                document.getElementById('Section3').textContent = data.Section3 || '';
+                document.getElementById('userName').textContent = data.nickName || '';
+                document.getElementById('githubUsername').textContent = data.githubUsername || '';
+                document.getElementById('sketchfabUsername').textContent = data.sketchfabUsername || '';
+                document.getElementById('portafolioUsername').textContent = data.portafolioUsername || '';
+                document.getElementById('twitchUsername').textContent = data.twitchUsername || '';
+                document.getElementById('discordUsername').textContent = data.discordUsername || '';
+                document.getElementById('youtubeUsername').textContent = data.youtubeUsername || '';
+                document.getElementById('linkedinUsername').textContent = data.linkedinUsername || '';
+                document.getElementById('Email').textContent = data.Email || '';
+                document.getElementById('Name').textContent = data.Name || '';
+                document.getElementById('Quote').textContent = data.Quote || '';
+              })
+              .catch(error => {
+                console.error('Error fetching or parsing translations:', error);
+              });
+          });
+        </script>
+        
+  </head>
+
+  <body class="hideScroll">
+    <!-- Animación de fondo parallax -->
+    <section class="animated-background">
+      <div id="stars1"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+    </section>
+    <!-- Fin de la animación de fondo parallax -->
+
+    <a id="profilePicture" href="#popup">
+      <img src="https://avatars.githubusercontent.com/YOUR_GITHUB_USERNAME" alt="Profile Picture">
+    </a>
+
+    <div class="overlay" id="popup">
+      <div class="popup">
+        <div class="popup-photo">
+          <a href="https://avatars.githubusercontent.com/YOUR_GITHUB_USERNAME" target="_blank">
+            <img src="https://avatars.githubusercontent.com/YOUR_GITHUB_USERNAME" alt="Profile Picture">
+          </a>
+        </div>
+        <div class="popup-quote" id="Quote"></div>
+        <a class="popup-close" onclick="history.back()">&times;</a>
+      </div>
+    </div>
+
+    <div id="userName"></div>
+
+    <img class="writingText" id="writingTextLink" />
+    
+    <section class="links">
+      <h3 id="Section1">
+        <hr />
+      </h3>
+      <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">
+        <div class="icon"><i class="fab fa-github"></i></div>
+        Github
+        <span class="u-name" id="githubUsername"></span>
+      </a>
+       <a href="https://sketchfab.com/YOUR_SKETCHFAB_USERNAME" target="_blank">
+        <div class="icon"><i class="fa fa-cube"></i></div>
+        Sketchfab
+        <span class="u-name" id="sketchfabUsername"></span>
+      </a>
+      <a href="LINK TO YOUR PORTFOLIO" target="_blank">
+        <div class="icon"><i class="fa fa-paperclip"></i></div>
+        Portafolio
+        <span class="u-name" id="portafolioUsername"></span>
+      </a>
+      
+      <h3 id="Section2">
+        <hr />
+      </h3>
+      <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME/" target="_blank">
+        <div class="icon"><i class="fa fa-linkedin"></i></div>
+        LinkedIn
+        <span class="u-name" id="linkedinUsername"></span>
+      </a>
+      <a class="link curriculum nocursor" href="LINK TO YOUR CV" target="_blank">
+      <div class="icon"><i class="fa fa-file">&nbsp;</i></div>
+      Currículum Vitae
+      <span class="u-name" id="Name"></span>
+      
+      <a onclick="copyToClipboard('YOUR_EMAIL_ADDRESS', 'email', 'fa fa-envelope', ' E-mail')" 
+      id="email">
+        <div class="icon"><i class="fa fa-envelope"></i></div>
+        E-mail
+        <span class="u-name" id="Email"></span>
+      </a>
+          
+      <h3 id="Section3">
+        <hr />
+      </h3>
+      <a href="https://www.twitch.tv/YOUR_TWITCH_USERNAME" target="_blank">
+        <div class="icon"><i class="fab fa-twitch"></i></div>
+        Twitch
+        <span class="u-name" id="twitchUsername"></span>
+      </a>
+      <a class="link discord" onclick="copyToClipboard('YOUR_DISCORD_USERNAME', 'discord', 'fab fa-discord', 'YOUR_DISCORD_USERNAME')" id="discord" onmouseenter="onMouseEnter()" onmouseleave="onMouseExit()" class="nocursor">
+      <div class="icon"><i class="fab fa-discord"></i></div>
+      Discord
+      <span class="u-name" id="discordUsername"></span>
+      </a>
+      <a href="https://www.youtube.com/@YOUR_YOUTUBE_USERNAME" target="_blank">
+        <div class="icon"><i class="fab fa-youtube"></i></div>
+        YouTube
+        <span class="u-name" id="youtubeUsername"></span>
+      </a>
+    </section>
+    <div class="cursor"></div>
+    
+    <script  src="linksScripts.js"></script>
+  </body>
+  <footer>
+  <p class="footerText">© Santiago Fisela 2023</p>
+
+</footer>
+</html>
